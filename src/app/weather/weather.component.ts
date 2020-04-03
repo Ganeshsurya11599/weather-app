@@ -12,7 +12,7 @@ export class WeatherComponent implements OnInit {
   public weatherData: any;
   date=new Date();
   constructor( private formbuilder : FormBuilder,
-                private apixuservice:ApixuService
+                private apixuservice:ApixuService,
   ) { }
 
   ngOnInit() {
@@ -21,10 +21,12 @@ export class WeatherComponent implements OnInit {
     });
   }
 
+  
+
   sendToAPIXU(formValues) {
     this.apixuservice.getWeather(formValues.location).subscribe(data => {
       this.weatherData = data;
-      console.log(this.weatherData);
+      console.log(this.weatherData); 
     });    
     
 }
